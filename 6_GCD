@@ -1,0 +1,45 @@
+Given two positive integers a and b, find GCD of a and b.
+
+Note: Don't use the inbuilt gcd function
+
+Examples:
+
+Input: a = 3, b = 6
+Output: 3
+Explanation: GCD of 3 and 6 is 3
+Input: a = 1, b = 1
+Output: 1
+Explanation: GCD of 1 and 1 is 1
+
+CODE:
+
+class Solution {
+    public static int gcd(int a, int b) {
+        /* FOR SMALLER INPUT SIZE:
+        
+        int i,gcd=0;
+        if(a>b){
+            int t=a;
+            a=b;
+            b=t;
+        }
+        for(i=1;i<=b;i++){
+            if(a%i==0 && b%i==0){
+                gcd=i;
+            }
+        }
+        return gcd;*/
+        
+        //FORMULA:
+        // gcd(a,b)=gcd(b,a%b)  // euclidean
+        
+        // FOR LARGER INPUT SIZE
+        while (b != 0) {
+            int r = a % b; // Calculate remainder
+            a = b;         // Update a to b
+            b = r;         // Update b to remainder
+        }
+        return a;
+    }
+}
+   
